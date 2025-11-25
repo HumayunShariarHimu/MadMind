@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MadMind</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(to bottom, #ffe6e6, #fff);
+        color: #333;
+        line-height: 1.7;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        background: #e74c3c;
+        color: #fff;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 2.2em;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        flex: 1;
+    }
+
+    /* Tabs */
+    .tabs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .tab {
+        padding: 15px;
+        background: #fce4e4;
+        text-align: center;
+        border-radius: 12px 12px 0 0;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .tab:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .tab.active {
+        background: #e74c3c;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Tab Content */
+    .tab-content {
+        display: none;
+        background: #fff;
+        padding: 25px;
+        border-radius: 0 12px 12px 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+        color: #e74c3c;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e74c3c;
+        padding-bottom: 5px;
+        font-size: 1.6em;
+    }
+
+    ul {
+        list-style: inside disc;
+        padding-left: 10px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 1.05em;
+        line-height: 1.8;
+        transition: transform 0.2s;
+    }
+
+    li:hover {
+        transform: translateX(5px);
+        color: #e74c3c;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #e74c3c;
+        color: #fff;
+        font-weight: 500;
+        font-size: 0.95em;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+        margin-top: auto;
+    }
+
+    @media(max-width: 768px){
+        h2 { font-size: 1.4em; }
+        .tab { font-size: 0.9em; padding: 12px; }
+        li { font-size: 1em; }
+    }
+</style>
+</head>
+<body>
+
+<header>MadMind</header>
+
+<div class="container">
+
+    <div class="tabs">
+        <div class="tab active" data-tab="bio">জীববিজ্ঞান</div>
+        <div class="tab" data-tab="mental">মানসিকতা</div>
+        <div class="tab" data-tab="behavior">আচরণ</div>
+        <div class="tab" data-tab="social">সামাজিক</div>
+        <div class="tab" data-tab="health">স্বাস্থ্য</div>
+        <div class="tab" data-tab="thinking">চিন্তাভাবনা</div>
+        <div class="tab" data-tab="relationship">সম্পর্ক</div>
+        <div class="tab" data-tab="hormonal">হরমোনাল</div>
+    </div>
+
+    <div id="bio" class="tab-content active">
+        <h2>জীববিজ্ঞানিক দিক</h2>
+        <ul>
+            <li>মস্তিষ্কের কার্যক্রম: হঠাৎ উদ্দীপনা এবং অপ্রত্যাশিত স্নায়বিক প্রতিক্রিয়া।</li>
+            <li>জেনেটিক প্রভাব: উদ্ভাবনী বা অদ্ভুত আচরণে জিনের ভূমিকা।</li>
+            <li>শারীরিক বৈশিষ্ট্য: শক্তিশালী বা অস্বাভাবিক অনুভূতি প্রকাশ।</li>
+            <li>স্নায়ু সংযোগ: অতিরিক্ত সংবেদনশীলতা এবং দ্রুত প্রতিক্রিয়া।</li>
+            <li>শারীরিক শক্তি: কখনো অতি-উচ্চ, কখনো অত্যন্ত কম।</li>
+        </ul>
+    </div>
+
+    <div id="mental" class="tab-content">
+        <h2>মানসিকতা</h2>
+        <ul>
+            <li>উদ্দীপনা: হঠাৎ আনন্দ, রাগ বা ভয়।</li>
+            <li>উদ্বেগ: ছোট ঘটনা বড় মনে হয়।</li>
+            <li>সৃজনশীল অবসান: একযোগে নানা ধারণা এবং ভাবনার ওঠাপড়া।</li>
+            <li>মনোযোগ পরিবর্তন: আকর্ষণীয় বিষয় থেকে হঠাৎ মনোযোগ বিচ্যুতি।</li>
+            <li>অস্থিরতা: মানসিক স্থিতিশীলতার অনিয়মিত ওঠাপড়া।</li>
+        </ul>
+    </div>
+
+    <div id="behavior" class="tab-content">
+        <h2>আচরণ</h2>
+        <ul>
+            <li>অপ্রত্যাশিত আচরণ: হঠাৎ হাসি, কান্না বা চুপচাপ থাকা।</li>
+            <li>রসিকতা: মজার বা অদ্ভুত রসিকতা হঠাৎ প্রকাশ।</li>
+            <li>প্রতিক্রিয়াশীলতা: অন্যদের কথায় তীব্র বা অপ্রত্যাশিত প্রতিক্রিয়া।</li>
+            <li>অবচেতন কাজ: হঠাৎ অভ্যাসগত বা অজানা ক্রিয়াকলাপ।</li>
+            <li>ঝুঁকিপূর্ণ আচরণ: ঝুঁকি নেওয়া বা অযৌক্তিক সিদ্ধান্ত।</li>
+        </ul>
+    </div>
+
+    <div id="social" class="tab-content">
+        <h2>সামাজিক দিক</h2>
+        <ul>
+            <li>সম্পর্ক: কখনো অত্যন্ত সামাজিক, কখনো একাকী।</li>
+            <li>আস্থা ও সন্দেহ: অপরিচিতদের প্রতি ওঠাপড়া।</li>
+            <li>সমাজের সাথে সংযোগ: কখনো স্বতন্ত্র, কখনো অত্যন্ত সংলগ্ন।</li>
+            <li>সহযোগিতা: হঠাৎ সহযোগিতা বা বিচ্যুতি।</li>
+            <li>সামাজিক চাপের প্রতিক্রিয়া: সহজে উত্তেজিত বা মনখারাপ।</li>
+        </ul>
+    </div>
+
+    <div id="health" class="tab-content">
+        <h2>স্বাস্থ্য</h2>
+        <ul>
+            <li>ঘুম: রাতে সক্রিয়, দিনে অনিদ্রা বা অতিরিক্ত ঘুম।</li>
+            <li>খাদ্যচক্র: অনিয়মিত বা ঝুঁকিপূর্ণ খাবারের অভ্যাস।</li>
+            <li>মানসিক চাপ: হঠাৎ উত্তেজনা, হতাশা বা আনন্দ।</li>
+            <li>শারীরিক শক্তি: অত্যধিক শক্তিশালী বা দুর্বল।</li>
+            <li>শারীরিক রোগ প্রতিক্রিয়া: অস্বাভাবিক সংবেদনশীলতা বা অসহিষ্ণুতা।</li>
+        </ul>
+    </div>
+
+    <div id="thinking" class="tab-content">
+        <h2>চিন্তাভাবনা</h2>
+        <ul>
+            <li>কাল্পনিক ধারণা: বাস্তব ও কাল্পনিক সীমার অস্পষ্টতা।</li>
+            <li>অপ্রত্যাশিত সমাধান: অদ্ভুত বা উদ্ভাবনী চিন্তাভাবনা।</li>
+            <li>জটিলতা: এক সময়ে একাধিক চিন্তা বা ভাবনার ওঠাপড়া।</li>
+            <li>মনস্তাত্ত্বিক বিশ্লেষণ: অন্যদের আচরণ বিশ্লেষণ।</li>
+            <li>সৃজনশীলতা: নতুন উপায়ে সমস্যা সমাধানের চেষ্টা।</li>
+        </ul>
+    </div>
+
+    <div id="relationship" class="tab-content">
+        <h2>সম্পর্ক</h2>
+        <ul>
+            <li>বিশ্বাসের ওঠাপড়া: সহজে ভরসা বা হঠাৎ সন্দেহ।</li>
+            <li>আবেগপ্রবণতা: বন্ধুত্ব ও দূরত্বের হঠাৎ পরিবর্তন।</li>
+            <li>মানসিক সমর্থন প্রয়োজন: প্রশংসা, ভালোবাসা এবং সমর্থন গুরুত্বপূর্ণ।</li>
+            <li>যোগাযোগের ধরন: হঠাৎ বন্ধুত্বপূর্ণ বা দূরত্ব বজায় রাখা।</li>
+            <li>সম্পর্ক স্থায়িত্ব: নিয়মিত ওঠাপড়া ও হঠাৎ বিচ্ছিন্নতা।</li>
+        </ul>
+    </div>
+
+    <div id="hormonal" class="tab-content">
+        <h2>হরমোনাল প্রভাব</h2>
+        <ul>
+            <li>হরমোনাল ওঠাপড়া: আচরণে হঠাৎ পরিবর্তন।</li>
+            <li>উদ্দীপনা বৃদ্ধি বা হ্রাস।</li>
+            <li>মানসিক অবস্থা: হঠাৎ উত্তেজনা বা হতাশা।</li>
+            <li>আবেগ প্রকাশ: হরমোনাল পরিবর্তনের ফলে আচরণে ওঠাপড়া।</li>
+            <li>শারীরিক প্রভাব: শক্তি, ঘুম, এবং ক্ষুধা প্রভাবিত।</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>Humayun Shariar Himu</footer>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
